@@ -2,8 +2,8 @@ const { Notice } = require('../database/notice');
 
 const createNotice = async (req, res) => {
     try {
-        const notice = req.body;
-        const newNotice = await Notice.create(notice);
+        const {notice,username} = req.body;
+        const newNotice = await Notice.create(notice,username);
         return res.status(200).send({ message: 'Notice created successfully', notice: newNotice });
     } catch (err) {
         res.status(500).json(err);
@@ -13,7 +13,7 @@ const createNotice = async (req, res) => {
 
 const getAllNotice = async (req, res) => {
     try {
-        const notices = await Notice.find({ $expr: { $lt: [0.5, { $rand: {} }] } }).populate('user');
+        const notices = await Notice.find().sort({createdAt:-1});
         return res.status(200).json(notices);
     } catch (err) {
         console.log({ error: err })

@@ -8,10 +8,8 @@ export default function Login() {
 
         <input type="text" placeholder='username'/>
         <br />
-
-        {/* <Link> */}
-            <button style={{backgroundColor:"black",color:"white"}}>Login</button>
-        {/* </Link> */}
+        <button style={{backgroundColor:"black",color:"white"}}>Login</button>
+        
     </div>
   )
 }
