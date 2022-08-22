@@ -5,12 +5,14 @@ const noticeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
     user: {
-        type: String,
-        required:true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
     }
-},{timestamps: true});
+
+}, { timestamps: true });
 
 const Notice = mongoose.model('Notice', noticeSchema);
 
-module.exports = {Notice};
+module.exports = { Notice };

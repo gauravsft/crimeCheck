@@ -25,7 +25,6 @@ export default function Notice() {
 
 
   const handleCreate = async () => {
-    console.log(notice);
     if(notice.length>100){
        alert(" You Not add more than 100 Character");
     }
@@ -56,7 +55,7 @@ export default function Notice() {
       <button onClick={() => {
         handleCreate();
         alert("Notice created SuccessFully")
-      }} disabled={(notice) ? false : true} style={{ color: 'white', backgroundColor: "green", height: "30px", margin: "auto", borderRadius: "100px", fontWeight: "400" }}>Submit</button>
+      }} disabled={(notice) ? false : true} style={{ color: 'white', backgroundColor: "black", height: "30px", margin: "auto", borderRadius: "100px", fontWeight: "400" }}>Submit</button>
 
 
       {

@@ -2,8 +2,8 @@ const { Notice } = require('../database/notice');
 
 const createNotice = async (req, res) => {
     try {
-        const {notice,username} = req.body;
-        const newNotice = await Notice.create(notice,username);
+        const notice = req.body;
+        const newNotice = await Notice.create(notice);
         return res.status(200).send({ message: 'Notice created successfully', notice: newNotice });
     } catch (err) {
         res.status(500).json(err);
