@@ -22,8 +22,9 @@ export default function Notice() {
   }, []);
 
 
-
-
+// 
+  let user=localStorage.getItem("username");
+  console.log(user,notice)
   const handleCreate = async () => {
     if(notice.length>100){
        alert(" You Not add more than 100 Character");
@@ -34,9 +35,11 @@ export default function Notice() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            user:localStorage.getItem('uername')
           },
           body: JSON.stringify({
             notice,
+            user,
           })
         });
         setNotice("");

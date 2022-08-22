@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const { connectDB } = require('./database/index');
 const { noticeRouter } = require('./routes/post');
-const { userRouter } = require('./routes/user');
 
 const app = express();  
 const port = 7000;
@@ -14,7 +13,6 @@ app.use((req, res, next) => {
     next();
 });
 app.use(noticeRouter);
-app.use(userRouter);
 
 
 connectDB().then(()=>{
