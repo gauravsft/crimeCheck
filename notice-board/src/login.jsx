@@ -8,22 +8,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    try {
-      await fetch(`http://localhost:7000/loginUser`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-        })
-      });
-      localStorage.setItem("username",username);
-      setUsername("");
-      navigate('/notice');
-    } catch (error) {
-      console.log(error)
-    }
+    localStorage.setItem("username", username);
+    navigate('/notice');
   }
 
   return (
@@ -34,7 +20,7 @@ export default function Login() {
       <br />
       <button onClick={() => {
         handleLogin();
-      }} disabled={(username) ? false : true} style={{ color: 'white', backgroundColor: "black", height: "30px" ,width:"80px", borderRadius: "10px", }}>Login</button>
+      }} disabled={(username) ? false : true} style={{ color: 'white', backgroundColor: "black", height: "30px", width: "80px", borderRadius: "10px", }}>Login</button>
 
     </div>
   )
